@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-size: 62.5%;
+  background-color: #2c5d63;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  margin: 1.5rem;
+  font-size: 2.5rem;
+}
+
+/* .searchBox {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+} */
+
+/*  */
+
+section {
+  width: 100%;
+  margin-bottom: 2rem;
+  width: 100%;
+  height: 5rem;
+  background-image: linear-gradient(to right, #cb2d3e, #ef473a);
+}
+.searchBox {
+  position: absolute;
+  top: 14.2%;
+  left: 5%;
+  /* transform: translate(-50%, 50%); */
+  background: #2f3640;
+  height: 4rem;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.searchBox:hover > .searchInput {
+  width: 36rem;
+  padding: 0 6px;
+}
+
+.searchBox:hover > .searchButton {
+  background: white;
+  color: #2f3640;
+}
+
+.searchButton {
+  color: white;
+  float: right;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  /* float: left; */
+  padding: 0;
+  color: white;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 0px;
+}
+
+@media screen and (max-width: 620px) {
+  .searchBox:hover > .searchInput {
+    width: 150px;
+    padding: 0 6px;
+  }
+}
+
+/*  */
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  color: #fff;
+}
+
+#myTable th,
+#myTable td {
+  text-align: left;
+  padding: 12px;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #dddddd83;
+}
+
+#myTable tr.header,
+#myTable tr:hover {
+  background-color: #f1f1f182;
+  color: #2c5d63;
+  transition: all 0.15s ease-in-out;
+}
+
+.personName {
+  width: 60%;
+  color: #cb2d3e;
+}
+
+.country {
+  width: 40%;
+  color: #cb2d3e;
+}
+
+.highlight {
+  /* background-color: #a2c11c; */
+  /* background-color: #ebffaf; */
+  background-color: #a7d129;
+  /* color: #fff; */
+}

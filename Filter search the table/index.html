@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./filter1.png" />
+    <title>Filter the table</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <h1>Search the table</h1>
+    <section>
+      <div class="searchBox">
+        <input
+          class="searchInput"
+          id="search-bar"
+          type="text"
+          name=""
+          placeholder="Search here ..."
+        />
+        <button class="searchButton" href="#">
+          <i class="material-icons"> search </i>
+        </button>
+      </div>
+    </section>
+
+    <table id="myTable">
+      <thead>
+        <tr class="header">
+          <th class="personName">Name</th>
+          <th class="country">Country</th>
+        </tr>
+      </thead>
+      <tbody id="tBody"></tbody>
+    </table>
+  </body>
+</html>
