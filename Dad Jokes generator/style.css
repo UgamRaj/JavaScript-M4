@@ -1,0 +1,107 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background-color: #233142; */
+  background-color: #222831;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 50%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resultBox {
+  margin-bottom: 2rem;
+}
+
+#jokeBox {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  /* background-color: #a2c11c; */
+  box-shadow: inset 0px 5px 10px 0px rgba(0, 255, 255, 0.7);
+  background-color: #0f0f14;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 0.4rem;
+  font-size: 1.4rem;
+  transition: all 0.2s ease-in-out;
+}
+.btn:hover {
+  /* background-color: #070f4e; */
+
+  box-shadow: inset 0px 10px 20px 2px rgba(0, 255, 255, 0.7);
+}
+
+.btn:active {
+  transform: translateY(5px);
+  scale: 0.94;
+}
+
+svg {
+  width: 100px;
+  height: 100px;
+}
+
+.loader {
+  display: none;
+  margin-bottom: 1rem;
+  margin-left: 1.1rem;
+}
+
+.card.shadow-animate {
+  box-shadow: 0px 0px 20px 10px #48abe0;
+  animation: shadows 1.5s infinite;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #081f37;
+}
+
+@keyframes shadows {
+  0% {
+    text-shadow: #48abe0 0 0 10px;
+    box-shadow: 0px 0px 20px 10px #48abe0;
+  }
+  50% {
+    text-shadow: blueviolet 0 0 10px;
+    box-shadow: 0px 0px 20px 10px blueviolet;
+  }
+  75% {
+    text-shadow: rebeccapurple 0 0 10px;
+    box-shadow: 0px 0px 20px 10px rebeccapuprle;
+  }
+  100% {
+    text-shadow: #48abe0 0 0 10px;
+    box-shadow: 0px 0px 20px 10px #48abe0;
+  }
+}
+
+p {
+  /* margin: 40px auto; */
+  font-family: "Ubuntu", sans-serif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #121212;
+  text-align: center;
+  letter-spacing: 2px;
+  text-shadow: -1px 1px 0 #41ba45, 1px 1px 0 #c63d2b, 1px -1px 0 #42afac,
+    -1px -1px 0 #c6c23f;
+}
