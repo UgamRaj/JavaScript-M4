@@ -1,68 +1,57 @@
-const imageBox = document.getElementById("imageBox");
-const imagesContainer = document.getElementById("imagesContainer");
-const loader = document.getElementById("loader");
+const searchBtn = document.getElementById("searchBtn");
+const searchField = document.getElementById("searchField");
+const cards = document.getElementById("cards");
+const showMoreBtn = document.getElementById("showMoreBtn");
 
-// console.log(loader);
+let currPage = 1;
 
-let ready = false;
-const count = 10;
-let imagesLoaded = 0;
-const apikey = "_DDIVJSgdK-GI1wA3aHOtxC9YTt8tCY6-4jMk7guznY";
-const apiUrl = `https://api.unsplash.com/photos/random/?client_id=${apikey}&count=${count}&page=1`;
+showMoreBtn.style.display = "none";
 
-const getImages = async () => {
-  try {
-    loader.style.display = "block";
-    const response = await fetch(apiUrl);
-    const imagesArray = await response.json();
-    displayImages(imagesArray);
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-const onImageLoaded = () => {
-  imagesLoaded++;
-  if (count === imagesLoaded) {
-    // All the images have loaded
-    ready = true; // Ready to load more images
-    loader.style.display = "none";
-    // console.log("READY IS BEING SET TO TRUE");
-  }
-  // console.log("Img finished loading");
-};
-
-const displayImages = (imagesArray) => {
-  imagesArray.forEach((imageObject) => {
-    const imageBox = document.createElement("div");
-    imageBox.classList.add("imageBox");
-    const img = document.createElement("img");
-    img.src = imageObject.urls.regular;
-    img.alt = "Random Image";
-    // onload
-    img.addEventListener("load", onImageLoaded);
-    imageBox.appendChild(img);
-    imagesContainer.appendChild(imageBox);
+const displayImages = (images) => {
+  //   cards.innerHTML = "";
+  images.forEach((image) => {
+    cards.innerHTML += ` <div class="card">
+<div class="image">
+  <img
+    src="${image.urls.regular}"
+    alt="image"
+  />
+</div>
+<div class="text">
+<a href="${image.urls.full}">${image.alt_description}</a>
+</div>
+</div>`;
   });
+
+  currPage++;
+  showMoreBtn.style.display = "none";
+
+  if (images.length >= 10) {
+    showMoreBtn.style.display = "block";
+  }
 };
 
-getImages();
+const getDataFromApi = async (searchKey) => {
+  const API_KEY = "Dm0sSUv1MLMaNgwwALWtO_CA5RpiXtka6JmcPJEB5Io";
 
-window.addEventListener("scroll", () => {
-  if (
-    window.scrollY + window.innerHeight >= document.body.offsetHeight &&
-    ready === true
-  ) {
-    ready = false;
-    imagesLoaded = 0;
-    getImages();
-    // console.log("Reached bottom");
+  const URL = `https://api.unsplash.com/search/photos?query=${searchKey}&client_id=${API_KEY}&page=${currPage}`;
+
+  try {
+    const response = await fetch(URL);
+    const data = await response.json();
+    // console.log(data.results);
+    displayImages(data.results);
+  } catch (error) {
+    console.log(error);
   }
-});
+};
 
-//! light dark mode
+const searchHandler = () => {
+  //   console.log(searchField.value);
+  const searchKey = searchField.value;
+  const result = getDataFromApi(searchKey);
+};
 
-const checkbox = document.getElementById("checkbox");
-checkbox.addEventListener("change", () => {
-  document.body.classList.toggle("dark");
-});
+searchBtn.addEventListener("click", searchHandler);
+
+showMoreBtn.addEventListener("click", searchHandler);
